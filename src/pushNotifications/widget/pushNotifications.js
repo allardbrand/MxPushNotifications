@@ -286,6 +286,20 @@ define([
 
             if (event.microflow) {
                 mx.data.action({
+                    params: {
+                        actionname: event.microflow
+                    },
+                    callback: function(obj) {
+                        logger.debug("[PUSHNOTIFY] - iOS - Succesfully called microflow: " + event.microflow);
+                    },
+                    error: function(error) {
+                        logger.debug("[PUSHNOTIFY] Error: " + error.description);
+                        alert(error.description);
+                    },
+                    onValidation: function(validations) {
+                        logger.debug("There were " + validation.length + " validation errors");
+                    }
+                });
             }
 
             if (event.sound) {
