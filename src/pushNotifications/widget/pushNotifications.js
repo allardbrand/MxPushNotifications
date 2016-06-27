@@ -284,6 +284,10 @@ define([
                 $(".notification").fadeIn();
             }
 
+            if (event.microflow) {
+                mx.data.action({
+            }
+
             if (event.sound) {
                 var snd = new Media("not.caf");
                 snd.play();
